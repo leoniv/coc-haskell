@@ -9,7 +9,7 @@
   "author": "Leonid Vlasov",
   "license": "MIT",
   "engines": {
-    "coc": "^0.0.79"
+    "coc": "^0.0.78"
   },
   "keywords": [
     "haskell",
@@ -19,7 +19,7 @@
   ],
   "main": "index.ts",
   "dependencies": {
-    "coc.nvim": "^0.0.79"
+    "coc.nvim": "0.0.79"
   },
   "devDependencies": {
     "@types/node": "^14.14.14",
