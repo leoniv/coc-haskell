@@ -12,11 +12,11 @@ function cmd(): string {
   if (! exist()) {
     setup()
   }
-  return 'FIXME'
+  return 'stack'
 }
 
 function serverOptions(): ServerOptions {
-  return {command: cmd(), args: []}
+  return {command: cmd(), args: ["exec", "--", "hie-wrapper", "--lsp"]}
 }
 
 export { serverOptions }

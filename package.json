@@ -17,7 +17,7 @@
     "language server",
     "coc.nvim"
   ],
-  "main": "index.ts",
+  "main": "lib/index.js",
   "dependencies": {
     "coc.nvim": "0.0.79"
   },

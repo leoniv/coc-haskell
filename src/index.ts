@@ -8,7 +8,6 @@ import {
 import {serverOptions} from "./hie-wrapper"
 
 export async function activate(ctx: ExtensionContext): Promise<void> {
-  ctx.logger.info("Intit coc-haskell")
   launchHie(ctx);
 }
 
@@ -28,7 +27,8 @@ async function launchHie(ctx: ExtensionContext) {
     "haskell", "Haskell language server", serverOptions(), clientOpts
   );
 
-  client.onReady().then((_) => {})
-  client.start()
-  ctx.subscriptions.push(services.registLanguageClient(client))
+  //client.onReady().then((_) => {})
+  //client.start()
+  console.info("Start client")
+  return ctx.subscriptions.push(services.registLanguageClient(client))
 }

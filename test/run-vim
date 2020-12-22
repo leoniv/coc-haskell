@@ -1,3 +1,5 @@
 #!/bin/bash
 
-vim -c "set runtimepath^=./" test/stack-project
+project_root=$(git rev-parse --show-toplevel)
+
+yarn build && cd test/stack-project && vim -c "set runtimepath^=$project_root" .
