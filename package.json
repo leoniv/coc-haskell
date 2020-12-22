@@ -23,8 +23,6 @@
   },
   "devDependencies": {
     "@types/node": "^14.14.14",
-    "fp-ts": "^2.9.1",
-    "fp-ts-contrib": "^0.1.21",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.2.1",
@@ -39,6 +37,42 @@
     "format": "prettier --write '**/*{ts,json}'",
     "format-check": "prettier --check '**/*{ts,json}'",
     "prepare": "npm-run-all clean build",
-    "watch": "parcel serve src/index.ts --out-dir lib/ --target node"
+    "watch": "parcel serve src/index.ts --out-dir lib/ --target node",
+    "repl": "ts-node -O '{\"noUnusedLocals\": false}'"
+  },
+  "activationEvents": [
+    "onLanguage:haskell"
+  ],
+  "contributes": {
+    "rootPatterns": [
+      {
+        "filetypes": [
+          "hs",
+          "lhs",
+          "haskell"
+        ],
+        "patterns": [
+          "*.cabal",
+          "stack.yaml",
+          "cabal.project",
+          "package.yaml"
+        ]
+      }
+    ],
+    "configurationDefaults": {
+      "[haskell]": {
+        "editor.suggestSelection": "first"
+      }
+    },
+    "configuration": {
+      "title": "coc-haskell configuration",
+      "properties": {
+        "coc-haskell.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-haskell extension"
+        }
+      }
+    }
   }
 }
