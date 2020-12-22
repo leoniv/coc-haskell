@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vim -c "set runtimepath^=./" test/stack-project

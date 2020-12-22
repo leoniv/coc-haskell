@@ -8,7 +8,7 @@ import {
 import {serverOptions} from "./hie-wrapper"
 
 export async function activate(ctx: ExtensionContext): Promise<void> {
-  workspace.showMessage(`coc-mycoc works!`);
+  ctx.logger.info("Intit coc-haskell")
   launchHie(ctx);
 }
 
