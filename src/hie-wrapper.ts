@@ -1,4 +1,5 @@
 import {ServerOptions} from "coc.nvim";
+import {exec} from "./utils"
 
 function exist(): boolean {
   return false
@@ -9,14 +10,18 @@ function setup(): void {
 }
 
 function cmd(): string {
-  if (! exist()) {
+  if (!exist()) {
     setup()
   }
-  return 'stack'
+  return 'hie-wrapper'
 }
 
 function serverOptions(): ServerOptions {
-  return {command: cmd(), args: ["exec", "--", "hie-wrapper", "--lsp"]}
+  console.info(exec("stack path --compiler-bin"))
+  return {
+    command: cmd(), args: ["--lsp"],
+    options: {env: {"PATH": exec("echo $PATH:`stack path --compiler-bin`")}}
+  }
 }
 
-export { serverOptions }
+export {serverOptions}
